@@ -4,6 +4,7 @@ from base_page import BasePage
 START_BUTTON = (By.XPATH, "//button[@id='startButton']")
 STOP_BUTTON = (By.XPATH, "//button[@id='stopButton']")
 PROGRESS_BAR = (By.XPATH, "//div[@id='progressBar']")
+TARGET = "75%"
 
 
 class ProgressBarPage(BasePage):
@@ -12,10 +13,10 @@ class ProgressBarPage(BasePage):
         self.press_button_with_execute_script(START_BUTTON)
         while True:
             progress = self.find_element(PROGRESS_BAR).text
-            if progress == "75%":
+            if progress == TARGET:
                 self.press_button_with_execute_script(STOP_BUTTON)
                 break
 
     def should_be_progress(self):
         text = self.find_element(PROGRESS_BAR).text
-        return text == "75%"
+        return text == TARGET
