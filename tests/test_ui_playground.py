@@ -17,7 +17,6 @@ from pages.progress_bar_page import ProgressBarPage
 from pages.non_space_page import NonSpacePage
 
 
-
 class TestUiPlayground:
     def test_dynamic_id(self, driver):
         main_page = MainPage(driver)
